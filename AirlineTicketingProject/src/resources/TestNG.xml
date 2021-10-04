@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Airline_Ticketing" verbose="1"><!--  parallel="tests" thread-count="4" -->
+<suite name="Airline_Ticketing" verbose="1"><!-- parallel="tests" thread-count="4" -->
 
 	<test name="Airline Shorted Route">
 		<parameter name="origin" value="MI" />
@@ -24,44 +24,21 @@
 			</class>
 		</classes>
 	</test>
-	<test name="Add Extra Baggage">
-		<parameter name="origin" value="MI" />
-		<parameter name="destination" value="CA" />
-		<parameter name="baggagesize" value="20" />
+
+	<test name="Book Ticket">
+		<parameter name="userId" value="1235" />
+		<parameter name="userName" value="User_1" />
+		<parameter name="extraBaggage" value="20" />
+		<parameter name="promoCode" value="10" />
 		<classes>
 			<class name="com.airlineticketing.test.VerifyFlightDetails">
 				<methods>
-					<include name="pickShortestThenChepestRoute" /> <!-- check baggage for specific flight return by current method.  -->
-					<include name="addExtraBaggageToFilght" />
+
+					<include name="bookTicket" />
 				</methods>
 			</class>
 		</classes>
 	</test>
 
-	<test name="Apply Promo Code">
-		<parameter name="origin" value="MI" />
-		<parameter name="destination" value="CA" />
-		<parameter name="promocode" value="10" />
-		<classes>
-			<class name="com.airlineticketing.test.VerifyFlightDetails">
-				<methods>
-					<include name="applyPromoCode" />
-				</methods>
-			</class>
-		</classes>
-	</test>
-
-	<test name="Check Frequent Flyer For Special Lounge ">
-		<parameter name="origin" value="MI" />
-		<parameter name="destination" value="CA" />
-		<parameter name="travlerid" value="6666" />
-		<classes>
-			<class name="com.airlineticketing.test.VerifyFlightDetails">
-				<methods>
-					<include name="checkFrequentFlyerTraveler" />
-				</methods>
-			</class>
-		</classes>
-	</test>
 
 </suite>
